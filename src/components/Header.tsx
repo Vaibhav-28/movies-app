@@ -111,7 +111,7 @@ const Header = ({
         <h1 className="text-lg md:text-2xl font-bold flex-shrink-0">
           My Movies
         </h1>
-        <div className="relative flex-1 min-w-[350px] w-full md:order-none order-last">
+        <div className="relative flex-1 min-w-[300px] w-full md:order-none order-last">
           <input
             type="text"
             placeholder="Search movies..."
