@@ -15,8 +15,6 @@ function App() {
   const [favorites, setFavorites] = useState<Movie[]>([]);
   const loaderRef = useRef(null);
   const abortControllerRef = useRef<AbortController | null>(null);
-  const isInitialSearchMount = useRef(1);
-  const isInitialFilterMount = useRef(1);
 
   const [filters, setFilters] = useState<FiltersType>({
     genres: [],
@@ -27,20 +25,11 @@ function App() {
   });
 
   useEffect(() => {
-    if (isInitialSearchMount.current <= 2) {
-      isInitialSearchMount.current++;
-      return;
-    }
-    if (isInitialFilterMount.current <= 2) {
-      isInitialFilterMount.current++;
-      return;
-    }
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }
     window.scrollTo(0, 0);
     setPage(1);
-    setMovies([]);
     setHasMore(true);
   }, [searchQuery, filters]);
 
