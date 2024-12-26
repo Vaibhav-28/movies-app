@@ -10,7 +10,6 @@ interface HeaderProps {
   searchQuery: string;
   setSearchQuery: Dispatch<SetStateAction<string>>;
   loading: boolean;
-  setLoading: Dispatch<SetStateAction<boolean>>;
   favorites: Movie[];
   toggleFavorite: (arg0: Movie) => void;
 }
@@ -26,7 +25,6 @@ const Header = ({
   searchQuery,
   setSearchQuery,
   loading,
-  setLoading,
   favorites,
   toggleFavorite,
 }: HeaderProps) => {
@@ -67,7 +65,6 @@ const Header = ({
   }, [TMDB_BEARER_TOKEN]);
 
   useEffect(() => {
-    setLoading(true);
     const handler = setTimeout(() => {
       setSearchQuery(debouncedQuery);
     }, 500);
@@ -75,10 +72,9 @@ const Header = ({
     return () => {
       clearTimeout(handler);
     };
-  }, [debouncedQuery, setLoading, setSearchQuery]);
+  }, [debouncedQuery, setSearchQuery]);
 
   useEffect(() => {
-    setLoading(true);
     const handler = setTimeout(() => {
       setFilters(debouncedFilters);
     }, 500);
@@ -86,7 +82,7 @@ const Header = ({
     return () => {
       clearTimeout(handler);
     };
-  }, [debouncedFilters, setFilters, setLoading]);
+  }, [debouncedFilters, setFilters]);
 
   const hasActiveFilters =
     filters.genres.length > 0 ||
