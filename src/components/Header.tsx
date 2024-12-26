@@ -163,7 +163,7 @@ const Header = ({
             className="fixed inset-0 bg-black/20 md:bg-transparent"
             onClick={() => setIsOpen(false)}
           />
-          <div className="fixed md:absolute left-0 md:left-auto right-0 md:right-0 top-0 md:top-full mt-0 md:mt-2 w-full md:w-96 h-screen md:h-auto bg-white md:rounded-lg shadow-xl border-l md:border border-gray-200 z-50 flex flex-col">
+          <div className="fixed md:absolute left-0 md:left-auto right-0 md:right-1 top-0 md:top-auto mt-0 md:mt-2 w-full md:w-[30rem] h-screen md:h-auto bg-white md:rounded-lg shadow-xl border-l md:border border-gray-200 z-50 flex flex-col">
             <div className="p-4 border-b">
               <div className="flex justify-between items-center">
                 <h3 className="text-lg font-semibold text-gray-700">
