@@ -169,9 +169,9 @@ function App() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {movies.map((movie) => (
+            {movies.map((movie, index) => (
               <MovieCard
-                key={movie?.id}
+                key={`${movie.id}-${index}-${searchQuery}`}
                 movie={movie}
                 isFavorite={favorites.some((m: Movie) => m?.id == movie?.id)}
                 onToggleFavorite={() => toggleFavorite(movie)}
